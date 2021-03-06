@@ -1,0 +1,3 @@
+[submodule "medflow"]
+	path = medflow
+	url = ./frontend/medflow/
