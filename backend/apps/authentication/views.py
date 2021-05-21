@@ -43,6 +43,7 @@ class RegistrationView(View):
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
+        password2 = request.POST['password2']
 
         context = {
             'field_values': request.POST
@@ -53,6 +54,11 @@ class RegistrationView(View):
 
                 if len(password) < 8:
                     messages.error(request, 'Password too short!')
+                    return render(request, 'authentication/register.html',
+                                  context)
+
+                if password != password2:
+                    messages.error(request, 'Passwords don\'t match, please try again')
                     return render(request, 'authentication/register.html',
                                   context)
 
@@ -156,18 +162,24 @@ class PasswordValidationView(View):
     def post(self, request):
         data = json.loads(request.body)
         password = data['password']
+        #password_2 = data['password2']
 
         if len(str(password)) < 8:
             return JsonResponse({
-                                    'password_error': 'Password must be at least 8 characters long'},
-                                status=400)
+                'password_error': 'Password must be at least 8 characters long'
+            }, status=400)
+
+        """if str(password) != str(password_2):
+            return JsonResponse({
+                'password_error': 'Your password don\'t match'
+            }, status=400) considerar implementar la verificación de dos password desde el frontend"""
 
         __esp_char = '!@#$%^&*()-+?_=,<>/'
 
         if not any(c in __esp_char for c in str(password)):
             return JsonResponse({
-                                    'password_error': 'Your password must contain at least one of the symbols: !@#$%^&*()-+?_=,<>/'},
-                                status=400)
+                'password_error': 'Your password must contain at least one of the symbols: !@#$%^&*()-+?_=,<>/'
+            }, status=400)
 
         return JsonResponse({'password_valid': True})
 

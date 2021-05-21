@@ -90,7 +90,7 @@ passwordField.addEventListener('keyup', e => {
         passwordFeedbackArea.style.display = 'none';
 
         fetch("/authentication/validate-password", {
-            body: JSON.stringify({password: passwordVal}),
+            body: JSON.stringify({password: passwordVal }),
             method: "POST"
         })
         .then(res => res.json())
