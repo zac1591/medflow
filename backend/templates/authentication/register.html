@@ -1,48 +1,55 @@
 {% extends 'base_auth.html' %}
-
 {% load static %}
 
-<title>{% block title %}Registrate | Medflow{% endblock %}</title>
+{% block title %}Sign Up | Medflow{% endblock %}
+
 {% block content %}
-<div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-        <div class="card mt-5">
-            <div class="card-body">
-                <div class="card-title py-3">
-                    <h4>Register for a free account</h4>
+    <div class="box">
+        <div class="loginArea">
+            <header class="header">
+                <h1 style="color: #008B95; letter-spacing: 1.5px;">MEDFLOW</h1>
+            </header>
+            <h1 class="headerSignUp">Sign Up</h1>
+            {% include 'partials/_messages.html' %}
+              <form action="{% url 'register' %}" method="POST">
+                  {% csrf_token %}
+                <div class="inputBox">
+                  <input type="text" name="username" required="" id="usernameField">
+                  <label>Username</label>
                 </div>
-                <form action="{% url 'register' %}" method="POST">
-                    {% csrf_token %}
-                    {% include 'partials/_messages.html' %}
-                    <div class="form-group">
-                        <input type="text" name="username" placeholder="username" id="usernameField" value = '{{field_values.email}}' class="form-control form-control-sm"/>
-                    </div>
+                  <div class="invalid-feedback invalid_feedback" style="display: none;"></div>
+                  <p class="text-sm text-success usernameSuccess"></p>
 
-                    <div class="invalid-feedback invalid_feedback" style="display: none;"></div>
-                    <p class="text-sm text-success usernameSuccess"></p>
+                <div class="inputBox">
+                    <input type="email" name="email" required="" id="emailField">
+                    <label>Email</label>
+                </div>
+                  <div class="invalid-feedback emailFeedbackArea" style="display: none;"></div>
+                  <p class="text-sm text-success emailSuccess"></p>
 
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="email" id="emailField" value = '{{field_values.email}}' class="form-control form-control-sm"/>
-                    </div>
+                <div class="inputBox">
+                  <input type="password" name="password" required="" id="passwordField">
+                  <label>Password</label>
+                </div>
+                  <div class="invalid-feedback passwordFeedbackArea" style="display: none;"></div>
+                  <p class="text-sm text-success passwordSuccess"></p>
 
-                    <div class="invalid-feedback emailFeedbackArea" style="display: none;"></div>
-                    <p class="text-sm text-success emailSuccess"></p>
-
-                    <div class="form-group">
-                        <input type="password" name="password" placeholder="password" id="passwordField" class="form-control form-control-sm"/>
-                    </div>
-
-                    <div class="invalid-feedback passwordFeedbackArea" style="display: none;"></div>
-                    <p class="text-sm text-success passwordSuccess"></p>
-
-                    <small class="float-right py-3 showPasswordToggle">SHOW</small>
-                    <input type="submit" value="Register" class="btn btn-block btn-primary submit-btn" />
-                </form>
+                <div class="inputBox">
+                  <input type="password" name="password2" required="" id="passwordField2">
+                  <label>Confirm password</label>
+                </div>
+                  <small class="showPasswordToggle" style="float:right; padding-bottom:1em; cursor: pointer;">SHOW</small>
+                <input class="customButton submit-btn" type="submit" name="" value="Submit">
+              </form>
+              <div class="loginFooter">
+                <p>Already have an account?</p>
+                <a href="{% url 'login' %}">Log in</a>
             </div>
         </div>
+        <div class="sliderArea">
+            <img src="{% static 'img/bg_2.jpg' %}" style="width: auto; height: 100%;" alt="">
+        </div>
     </div>
-    <div class="col-md-4"></div>
-</div>
+
 <script src="{% static 'js/register.js' %}"></script>
 {% endblock %}

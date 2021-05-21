@@ -1,9 +1,36 @@
 {% extends 'base_auth.html' %}
+{% load static %}
+
+{% block title %}Log In | Medflow{% endblock %}
 
 {% block content %}
-<div class="card">
-    <div class="card-body">
-        <h1>Login</h1>
+    <div class="box">
+        <div class="loginArea">
+            <header class="header">
+                <h1 style="color: #008B95; letter-spacing: 1.5px;">MEDFLOW</h1>
+            </header>
+            <h1 class="headerLogin">Log in</h1>
+            {% include 'partials/_messages.html' %}
+              <form action="{% url 'login' %}" method="POST">
+                  {% csrf_token %}
+                <div class="inputBox">
+                  <input type="text" name="username" required="" id="usernameField">
+                  <label>Username</label>
+                </div>
+                <div class="inputBox">
+                  <input type="password" name="password" required="" id="passwordField">
+                  <label>Password</label>
+                </div>
+                <input class="customButton" type="submit" name="" value="Submit">
+              </form>
+              <div class="loginFooter">
+                <p>Don't have an account?</p>
+                <a href="{% url 'register' %}">Sign up</a>
+            </div>
+        </div>
+        <div class="sliderArea">
+            <img src="{% static 'img/bg_2.jpg' %}" style="width: auto; height: 100%;" alt="">
+        </div>
     </div>
-</div>
 {% endblock %}
+

@@ -7,6 +7,7 @@ const emailFeedbackArea = document.querySelector('.emailFeedbackArea');
 const emailSuccess = document.querySelector('.emailSuccess');
 
 const passwordField = document.querySelector('#passwordField');
+const passwordField2 = document.querySelector('#passwordField2');
 const passwordFeedbackArea = document.querySelector('.passwordFeedbackArea');
 const passwordSuccess = document.querySelector('.passwordSuccess');
 
@@ -18,7 +19,6 @@ const submitBtn = document.querySelector('.submit-btn');
 usernameField.addEventListener('keyup', e => {
     const usernameVal = e.target.value;
 
-    
     if(usernameVal.length > 0) {
         usernameSuccess.style.display = 'block';
         usernameSuccess.textContent = `Checking ${usernameVal}`;
@@ -115,8 +115,10 @@ function toggleHandler(e) {
     if(showPasswordToggle.textContent === 'SHOW') {
         showPasswordToggle.textContent = 'HIDE';
         passwordField.setAttribute('type', 'text')
+        passwordField2.setAttribute('type', 'text')
     } else {
         showPasswordToggle.textContent = 'SHOW';
         passwordField.setAttribute('type', 'password')
+        passwordField2.setAttribute('type', 'password')
     }
 }
