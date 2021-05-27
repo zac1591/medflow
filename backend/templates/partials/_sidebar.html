@@ -1,77 +1,24 @@
 {% load static %}
 
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-    <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
-            <span data-feather="home"></span>
-            Dashboard
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-            <span data-feather="file"></span>
-            Expenses
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-            <span data-feather="shopping-cart"></span>
-            Income
-            </a>
-        </li>
-        <!-- <li class="nav-item">
-            <a class="nav-link" href="#">
-            <span data-feather="users"></span>
-            Customers
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-            <span data-feather="bar-chart-2"></span>
-            Reports
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-            <span data-feather="layers"></span>
-            Integrations
-            </a>
-        </li> -->
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-        <span>Sumary</span>
-        <a class="link-secondary" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-        </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-            <!-- <span data-feather="file-text"></span> -->
-            Expenses sumary
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-            <!-- <span data-feather="file-text"></span> -->
-            Income sumary
-            </a>
-        </li>
-        <!-- <li class="nav-item">
-            <a class="nav-link" href="#">
-            <span data-feather="file-text"></span>
-            Social engagement
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-            <span data-feather="file-text"></span>
-            Year-end sale
-            </a>
-        </li> -->
-        </ul>
-    </div>
-</nav>
+<div class="contenedorPrincipalPlex">
+		<h1 class="tituloBarraMenu">Medflow</h1>
+		<div class="logoContainer">
+			<img src="{% static 'img/young-female-dr.jpg' %}" class="doctorImage" alt="">
+			<p class="nombreMedico">Bienvenida <span style="font-weight: bold;">Scarlett</span></p>
+		</div>
+		<input type="submit" class="botonAgregarPaciente" value="Agregar Paciente">
+		<div class="scrollable">
+			<nav class="navegacion">
+			<a href="" class="option">Overview</a>
+			<a href="" class="option">Actividad</a>
+			<a href="" class="option">Pacientes</a>
+			<a href="" class="option">Agenda</a>
+			<a href="" class="option">Notas</a>
+			<a href="" class="option">Caja</a>
+			<a href="" class="option">Inventario</a>
+			<a href="" class="option">Logistica</a>
+			<a href="" class="option">Reportes</a>
+			<a href="" class="option">Log out</a>
+		</nav>
+		</div>
+	</div>
