@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework_api_key',
     'apps.authentication',
     'apps.pacientes',
+    'apps.user',
 ]
 
 MIDDLEWARE = [

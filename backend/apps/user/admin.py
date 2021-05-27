@@ -4,11 +4,11 @@ from .models import User, UserProfile
 
 
 class UserAdmin(BaseUserAdmin):
-    list_display = ('email', 'is_student', 'is_staff', 'is_admin')
-    list_filter = ('is_student', 'is_admin')
+    list_display = ('email', 'is_doctor', 'is_enfermera', 'is_staff', 'is_admin')
+    list_filter = ('is_doctor', 'is_admin')
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Permissions', {'fields': ('is_student', 'is_admin', 'is_staff')}),
+        ('Permissions', {'fields': ('is_doctor', 'is_enfermera', 'is_admin', 'is_staff')}),
     )
 
     add_fieldsets = (

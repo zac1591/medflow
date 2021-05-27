@@ -21,7 +21,7 @@ class Paciente(models.Model):
 
 
 class Expediente(models.Model):
-    id_paciente = models.OneToOneField(to=Paciente, on_delete=models.CASCADE, primary_key=True)
+    id_paciente = models.OneToOneField(to=Paciente, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     gender = models.CharField(max_length=15)
     grupo_sangre = models.CharField(max_length=15)
